@@ -2,7 +2,7 @@
 #### Spring 2023, CSE 252D: Advanced Computer Vision Project, UC San Diego
 
 ## Installation
-Please create a virtual environment:
+Please create a virtual environment:-
 ```commandline
 python3 -m venv two_nerf
 source ./two_nerf/bin/activate
