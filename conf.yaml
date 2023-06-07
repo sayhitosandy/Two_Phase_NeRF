@@ -1,0 +1,6 @@
+test_dir: "./data/test"
+train_dir: "./data/train"
+output_images: "./data/output"
+num_iters_first: 5000
+num_iters_second: 2000
+img_output_every: 200
