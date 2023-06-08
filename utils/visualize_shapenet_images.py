@@ -1,4 +1,4 @@
-def create_images(data_folder):
+def visualize_shapenet_images(data_folder):
     import os
 
     import numpy as np
@@ -23,4 +23,4 @@ def create_images(data_folder):
 
 if __name__ == "__main__":
     folder = "../data/train/"  # data folder containing .npz file(s)
-    create_images(data_folder=folder)
+    visualize_shapenet_images(data_folder=folder)
