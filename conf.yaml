@@ -1,10 +1,7 @@
-test_dir: "./data/test"
-train_dir: "./data/train"
-output_images: "./data/"
-load_weights: False
-load_pretext_model: "./models/input"
-save_pretext_model: "./models/output/"
-num_iters_first: 5000
+model: "two_phase_nerf"
+train_dir: "./data/train/"
+test_dir: "./data/test/"
+test_only: True
+num_iters_first: 10000
 num_iters_second: 2000
-img_output_every: 200
-model:
+
