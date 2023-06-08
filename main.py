@@ -27,10 +27,16 @@ def main(conf):
 
     if conf['model'] == 'tiny_nerf':
         nerf = downstream(nerf, device, conf)
-    elif conf['model'] == 'two_phase_nerf' and conf['test_only']:
-        nerf = torch.load(f'{conf["model"]}/pretext_model.pt')
-        nerf.F_c.eval()
-        nerf = downstream(nerf, device, conf)
+    elif conf['test_only']:
+        path = f'{conf["model"]}/pretext_model.pt'
+        if os.path.exists(path):
+            nerf = torch.load(path)
+            nerf.F_c.eval()
+            nerf = downstream(nerf, device, conf)
+        else:
+            print("No pretext model exists. Falling back to scratch training!")
+            nerf = pretext(nerf, device, conf)
+            nerf = downstream(nerf, device, conf)
     else:
         nerf = pretext(nerf, device, conf)
         nerf = downstream(nerf, device, conf)
