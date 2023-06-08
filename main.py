@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import numpy as np
+import sys
+
 import torch
 import yaml
-import sys
+
 from nerf import VeryTinyNeRF
-from traning import *
+from training import *
+
 
 def main(conf):
     # Set seeds
@@ -27,18 +29,24 @@ def main(conf):
 
     if conf['model'] == 'tiny_nerf':
         nerf = downstream(nerf, device, conf)
-    elif conf['model'] == 'two_phase_nerf' and conf['test_only']:
-        nerf = torch.load(f'{conf["model"]}/pretext_model.pt')
-        nerf.F_c.eval()
-        nerf = downstream(nerf, device, conf)
+    elif conf['test_only']:
+        path = f'{conf["model"]}/pretext_model.pt'
+        if os.path.exists(path):
+            nerf = torch.load(path)
+            nerf.F_c.eval()
+            nerf = downstream(nerf, device, conf)
+        else:
+            print("No pretext model exists. Falling back to scratch training!")
+            nerf = pretext(nerf, device, conf)
+            nerf = downstream(nerf, device, conf)
     else:
         nerf = pretext(nerf, device, conf)
         nerf = downstream(nerf, device, conf)
 
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     # Read configuration
-    if len(sys.argv)==1:
+    if len(sys.argv) == 1:
         print("You need to give conf file name")
         exit()
     file = sys.argv[1]
