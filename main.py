@@ -8,7 +8,7 @@ import yaml
 from nerf import VeryTinyNeRF
 from traning import *
 
-def main(conf, args):
+def main(conf):
     # Set seeds
     seed = 9458
     torch.manual_seed(seed)
@@ -25,7 +25,7 @@ def main(conf, args):
     if not os.path.exists(f'{conf["model"]}/results'):
         os.makedirs(f'{conf["model"]}/results')
 
-    if conf['model'] == 'normal_nerf':
+    if conf['model'] == 'tiny_nerf':
         nerf = downstream(nerf, device, conf)
     elif conf['model'] == 'two_phase_nerf' and conf['test_only']:
         nerf = torch.load(f'{conf["model"]}/pretext_model.pt')

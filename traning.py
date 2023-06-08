@@ -118,7 +118,7 @@ def downstream(nerf, device, conf):
             plt.savefig(f'{conf["model"]}/results/Iteration{i}')
             nerf.F_c.train()
 
-        np.savez(f'{conf["model"]}/downstream_metrics.npz',
+        np.savez(f'{conf["model"]}/metrics.npz',
             epochs=np.array(num_iters),
             train_loss=np.array(losses),
             val_loss=np.array(val_losses),
