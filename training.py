@@ -1,17 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
-import os
 
-import matplotlib.pyplot as plt
-import numpy as np
 import torch
-import yaml
 from torch import nn, optim
-from torch.utils.data import Dataset
 from tqdm import tqdm
 
-from nerf import VeryTinyNeRF
 from dataloader import *
+
 
 def pretext(nerf, device, conf):
     lr = 5e-3
@@ -46,14 +41,15 @@ def pretext(nerf, device, conf):
         loss.backward()
         optimizer.step()
 
-        if((i+1)%1000==0):
+        if (i + 1) % 1000 == 0:
             torch.save(nerf, f'./{conf["model"]}/pretext_model.pt')
             np.savez(f'./{conf["model"]}/pretext_loss.npz', pretext_loss=np.array(pretext_losses))
         torch.cuda.empty_cache()
 
     torch.save(nerf, f'./{conf["model"]}/pretext_model.pt')
-    np.savez(f'./{conf["model"]}/pretext_loss.npz',pretext_loss=np.array(pretext_losses))
+    np.savez(f'./{conf["model"]}/pretext_loss.npz', pretext_loss=np.array(pretext_losses))
     return nerf
+
 
 def downstream(nerf, device, conf):
     lr = 5e-3
@@ -119,10 +115,9 @@ def downstream(nerf, device, conf):
             nerf.F_c.train()
 
         np.savez(f'{conf["model"]}/metrics.npz',
-            epochs=np.array(num_iters),
-            train_loss=np.array(losses),
-            val_loss=np.array(val_losses),
-            psnr=np.array(psnrs))
+                 epochs=np.array(num_iters),
+                 train_loss=np.array(losses),
+                 val_loss=np.array(val_losses),
+                 psnr=np.array(psnrs))
 
     print("Done!")
-

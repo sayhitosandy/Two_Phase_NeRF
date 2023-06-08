@@ -1,11 +1,11 @@
-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # coding: utf-8
 import os
 
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+
 
 def load_data(device, data_f):
     """

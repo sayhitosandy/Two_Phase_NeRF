@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import numpy as np
+import sys
+
 import torch
 import yaml
-import sys
+
 from nerf import VeryTinyNeRF
-from traning import *
+from training import *
+
 
 def main(conf):
     # Set seeds
@@ -42,9 +44,9 @@ def main(conf):
         nerf = downstream(nerf, device, conf)
 
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     # Read configuration
-    if len(sys.argv)==1:
+    if len(sys.argv) == 1:
         print("You need to give conf file name")
         exit()
     file = sys.argv[1]
