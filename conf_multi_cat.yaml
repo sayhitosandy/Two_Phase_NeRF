@@ -1,6 +1,6 @@
 model: "two_phase_nerf_multi"
-train_dir: "./data/train/"
-test_dir: "./data/test/"
+train_dir: "./multi_data/train/"
+test_dir: "./multi_data/test/"
 test_only: False
 num_iters_first: 10000
 num_iters_second: 2000

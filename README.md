@@ -22,9 +22,8 @@ cp ./dataset/cars.npz ./data/train/
 ```
 This is only an example. Feel free to use one or more `.npz` files to train the Two-Phase NeRF. 
 
-
-## Training Configurations
-We can use the `conf.yam'` file to set up all required training and testing parameters. Following describes the configuration parameter.
+## Configuration Settings
+We can use the `conf.yaml` file to set up all required training and testing parameters. Following describes the configuration parameter.
 
 1. `model` - Determines the type of NeRF we want to train. `tiny_nerf` indicates original tiny nerf module and `two_phase_nerf` indicates the nerf module we introduced.
 
@@ -40,23 +39,31 @@ We can use the `conf.yam'` file to set up all required training and testing para
 
 7. `img_output_every` - Indicates the frequency at which test view validation occurs and stores output and PSNR plots in `model/results` folder.
 
+## Configuration Files
+The following configuration files have been set up for training:
+
+1. `conf_baseline.yaml` - Trains the baseline tiny_nerf.
+2. `conf.yaml` - Trains a two_phase_nerf with a single category pretext and downstream training.
+3. `conf_test.yaml` - Performs downstream training on two_phase_nerf with single category pretext
+4. `conf_multi_cat.yaml` - Trains a two_phase_nerf with a multi category pretext and downstream training.
 
 ## Train and Test
-Please create the `data/train`, `data/test` folders and update the `conf.yaml` file with desired parameters.
-
-The default `conf.yaml` setting will run the `two_phase_nerf` from scratch. To use pre-trained weights, set `test_only` parameter to true.
+Please create the `data/train`, `data/test` folders and choose the `conf.yaml` file with desired parameters.
 
 To run the code:
 ```commandline
-python3 ./main.py
+python3 ./main.py conf.yaml
 ```
 
 ## Results
 Results can be viewed in `{model}/results`. The model stores, image output and PSNR plots at `img_output_every` intervals.
 
-
 ## Additional Utilities
-`utils\generate_dataset` - Generates `.npz` files from ShapeNet dataset.
+We have added a few utility functions in `utils/`. The files are as follows:
+
+1. `generate_npz_from_shapenet_data` - Generates `.npz` files from ShapeNet dataset.
+2. `visualize_shapenet_images` - Generates images from `.npz` files for visualization.
+
 
 ## Contributors
 1. Krish Rewanth Sevuga Perumal
