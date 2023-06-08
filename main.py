@@ -4,7 +4,7 @@
 import numpy as np
 import torch
 import yaml
-
+import sys
 from nerf import VeryTinyNeRF
 from traning import *
 
@@ -38,7 +38,11 @@ def main(conf):
 
 if __name__ == '__main__':    
     # Read configuration
-    with open("./conf.yaml", "r") as file:
+    if len(sys.argv)==1:
+        print("You need to give conf file name")
+        exit()
+    file = sys.argv[1]
+    with open("./" + file, "r") as file:
         conf = yaml.load(file, Loader=yaml.FullLoader)
 
     # Train and predict NeRF
