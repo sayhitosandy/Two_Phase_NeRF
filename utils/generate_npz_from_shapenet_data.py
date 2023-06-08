@@ -17,7 +17,7 @@ def create_directory(directory_path):
         # print(f"Directory '{directory_path}' created successfully!")
 
 
-def main():
+def generate_npz_from_shapenet_data():
     # Set up the renderer.
     renderer = Renderer(
         camera_distance=CAMERA_DISTANCE,
@@ -102,4 +102,4 @@ if __name__ == "__main__":
         objs.append(it)
     print(objs)
     print(folder_names)
-    main()
+    generate_npz_from_shapenet_data()
