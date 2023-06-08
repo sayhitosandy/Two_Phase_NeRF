@@ -1,0 +1,7 @@
+model: "tiny_nerf"
+train_dir: "./data/train/"
+test_dir: "./data/test/"
+test_only: False
+num_iters_first: 10000
+num_iters_second: 2000
+img_output_every: 100
