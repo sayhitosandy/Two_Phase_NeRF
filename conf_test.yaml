@@ -2,6 +2,6 @@ model: "two_phase_nerf"
 train_dir: "./data/train/"
 test_dir: "./data/test/"
 test_only: True
-num_iters_first: 10000
-num_iters_second: 2000
+num_iters_first: 5000
+num_iters_second: 1000
 img_output_every: 100
