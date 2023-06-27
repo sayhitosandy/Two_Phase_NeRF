@@ -64,9 +64,11 @@ We have added a few utility functions in `utils/`. The files are as follows:
 1. `generate_npz_from_shapenet_data` - Generates `.npz` files from ShapeNet dataset.
 2. `visualize_shapenet_images` - Generates images from `.npz` files for visualization.
 
-
 ## Contributors
 1. Krish Rewanth Sevuga Perumal
 2. Manas Sharma
 3. Ritika Kishore Kumar
 4. Sanidhya Singal
+
+### [Report](https://github.com/sayhitosandy/Two_Phase_NeRF/blob/report_and_video/NeRF_Project_Report.pdf)
+### [Project Video](https://drive.google.com/file/d/1EhKgIa5kKkrdCRV-tMHIqjBYW0Bi4rND/view?usp=sharing)
