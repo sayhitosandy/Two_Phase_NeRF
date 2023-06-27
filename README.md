@@ -70,5 +70,5 @@ We have added a few utility functions in `utils/`. The files are as follows:
 3. Ritika Kishore Kumar
 4. Sanidhya Singal
 
-### [Report](https://github.com/sayhitosandy/Two_Phase_NeRF/blob/report_and_video/NeRF_Project_Report.pdf)
+### [Report](https://github.com/sayhitosandy/Two_Phase_NeRF/blob/master/NeRF_Project_Report.pdf)
 ### [Project Video](https://drive.google.com/file/d/1EhKgIa5kKkrdCRV-tMHIqjBYW0Bi4rND/view?usp=sharing)
