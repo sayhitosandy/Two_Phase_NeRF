@@ -1,6 +1,11 @@
 # A Two-Phase Training Approach To Boost NeRF Reconstruction Speed
 #### Spring 2023, CSE 252D: Advanced Computer Vision Project, UC San Diego
 
+Our approach entails the utilization of a pre-trained NeRF model, trained on one or more generic objects, to subsequently train the object of interest. The pre-trained NeRF acquires general features and representations pertinent to one or more object categories, thereby diminishing the number of epochs required for training the new object from scratch. This results in a significant reduction in both time and computational resources. 
+
+Please refer to [Report](https://github.com/sayhitosandy/Two_Phase_NeRF/blob/master/NeRF_Project_Report.pdf) and [Project Video](https://drive.google.com/file/d/1EhKgIa5kKkrdCRV-tMHIqjBYW0Bi4rND/view?usp=sharing) for more details.
+
+
 ## Installation
 Please create a virtual environment:-
 ```commandline
@@ -69,6 +74,3 @@ We have added a few utility functions in `utils/`. The files are as follows:
 2. Manas Sharma
 3. Ritika Kishore Kumar
 4. Sanidhya Singal
-
-### [Report](https://github.com/sayhitosandy/Two_Phase_NeRF/blob/master/NeRF_Project_Report.pdf)
-### [Project Video](https://drive.google.com/file/d/1EhKgIa5kKkrdCRV-tMHIqjBYW0Bi4rND/view?usp=sharing)
